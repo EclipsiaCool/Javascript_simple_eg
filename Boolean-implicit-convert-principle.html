@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //false 0; true 1
+        /*待补充情况：
+        基本类型symbol
+        引用类型Date,RegExp
+        */
+        let x = "1";
+        //用于比较时候看0&1
+        console.log("1" == true);//true
+        console.log("11" == true);//false
+        console.log(" " == true);
+        //String用于参与运算时候都为true，String为空除外。
+        console.log(Boolean("188"), Boolean("1"),
+        Boolean("0"),Boolean(" "),Boolean(""));//ttttf
+        //Number用于参与运算时除了NaN和空外，其余为true
+        console.log(Boolean(123),Boolean(1),Boolean(0),//ttt
+        Boolean(NaN));//f
+        //其他基本类型
+        console.log(Boolean(null),Boolean(undefined),Boolean());//fff
+
+        //引用类型比如数组[]对象{}等转为布尔类型都为真
+        console.log(Boolean({}),Boolean([]),
+        Boolean(function(){}),Boolean(Date()));//ttt
+        
+        //Number空数组为0，空对象为
+        console.log(Number([]), Number([]) == false);
+        //数组有一个为1的值true
+        console.log(Number([1]));//1
+        //数组有多个值则为NaN，not a number,补充说明NaN是属于Number类型的特殊值
+        console.log(Number([1,2,3]));
+        //Number空对象是NaN
+        console.log(Number({}),Number(function(){}));//NaN,NaN
+
+         
+    </script>
+</body>
+</html>
