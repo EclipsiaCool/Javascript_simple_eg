@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const string = "99";
+        console.log(typeof string);//string
+        console.log(string * 1 + 78);//177
+        //字符转为数字方法一：string与number做运算，结果为number类型
+        console.log(typeof(string * 1 + 78));
+        //注意区分：
+        console.log(string + 88);//9988
+        //字符串转为数字方法二：将string转为number后可继续与number进行运算
+        console.log(Number(string) + 88);
+
+        
+        const number = 666;
+        console.log(typeof number);//number
+        //数字转为字符串方法一：数字加空格字符串
+        const str = number + " ";
+        console.log(typeof str);
+        //数字转字符串方法二：
+        console.log(typeof String(number));
+        //数字转字符串方法三
+        console.log(number.toString());
+        
+        //字符串转数字方法三：
+        /*数字（开头）+字符串组合变成数字类型,
+        若是num+string+number，结果只取开头类型：*/
+        const string3 = "1234.37hahahah123";
+        console.log(parseInt(string3));//1234
+        console.log(parseFloat(string3));//1234.37
+        //字符（开头）+数字则无法s使用此方法将字符串转化为数字类型：
+        const string3_1 = "hahahah1234";
+        console.log(parseInt(string3_1));//NaN
+
+        //字符串转为数组方法一：
+        const cms = "This_is_a_string.";
+        //以_为标志将string分开再组成数组
+        let strtoarray = cms.split("_"); 
+        console.log(strtoarray, strtoarray.length);
+        //数组转为字符串方法一：
+        const arraytostr = ["a", "b", "c"];
+        console.log(arraytostr.join("|"));//字符串里以|连接
+        //数组转为字符串方法二：
+        console.log(arraytostr.toString());//a,b,c
+
+        let string4 = "helloworld";
+        console.log(typeof string4, string4.substr(3));//截取从index=3到index最后一位
+
+        //object类型转为字符串
+        let obj1 = new String("hahahah");
+        console.log(typeof obj1, obj1.substr(3));
+
+
+
+
+    </script>
+</body>
+</html>
