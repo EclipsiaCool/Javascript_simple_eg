@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>firstdiv</div>
+    <div>secondiv</div>
+    <script>
+        //判断是否为数组
+        console.log(Array.isArray([]));
+        //数组转字符串，方便传递
+        let array = [1, 3, 4];
+        let joined = array.join("|");
+        console.log(array.toString(),location.href + 
+        "?id" +joined);
+        //http://127.0.0.1:5502/ArrayConvert.html?id1|3|4
+
+        //拆分string至每一个数组，
+        let string = "thisisastring.";
+        console.log(Array.from(string));//
+        let obj = {
+            0: "string1",
+            1: "string2"
+        };
+
+        let obj1 = {
+            firstname: "string1",
+            lastname: "string2",
+            length: 2//若是去掉这个属性则无法转
+        };
+
+        let obj2 = {
+            0: "string1",
+            1: "string2",
+            length: 2//若是去掉这个属性则无法转,见obj
+        };
+
+        console.log(Array.from(obj),//[]
+        Array.from(obj1),// [undefined, undefined] 
+        Array.from(obj2),//["string1", "string2"]
+        Array.from(obj = obj2),//["string1", "string2"]
+        Array.from(obj)// ["string1", "string2"]
+        );
+
+        //dom节点放到array里面
+        let divs = document.querySelectorAll("div");
+        console.log(
+            Array.from(divs, function(item) {
+                item.style.backgroundColor = "red";
+                return item;
+            })//[div, div],并且div变了颜色
+        );
+    
+
+
+
+    </script>
+</body>
+</html>

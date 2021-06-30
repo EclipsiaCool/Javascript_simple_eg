@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <input type="text" name="number" value="99">
+     <script>
+         let n = new Number(100);
+         let n1 = 99;
+         let n2 = 99.965;
+         console.log(typeof n, typeof n1);//object , number
+         console.log(n.toString(), typeof n.toString());//100, string 
+         console.log(n2.toFixed(2));//99.97
+        //注意取自标签的为string
+         const number = document.querySelector("[name='number']").value;
+         console.log(typeof number);//string
+        //组合型对象可得到值
+        console.log(Number({valueOf: function(){
+            return 99;
+        }}));
+         
+     </script>
+ </body>
+ </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>    
+    //什么是时间戳？1970到现在为止的毫秒数
+    
+    const date = new Date();
+    console.log(date);
+    console.log(typeof date);//obj
+    //如何获取时间戳，以下几种方法。
+    console.log(date * 1, typeof date * 1);//时间戳，nan
+    console.log(Number(date));
+    console.log(date.valueOf());
+    console.log(date.getTime);
+    
+    //时间戳转为标准时间
+    const timesstamp = date.valueOf();
+    console.log(new Date(timesstamp));
+
+    //当前时间
+    console.log(Date.now());
+    
+    const start = Date.now();
+    for(let i = 0; i < 2000000000; i++){}
+    const end = Date.now();
+    console.log((end - start)/1000 + "秒");
+
+
+    console.time("for");
+    for(let i = 0; i < 2000000000; i++){}
+    console.timeEnd("for");
+
+    //具体日期
+    const date3 = new Date("1990-8-22 3:08:09");
+    console.log(date.getMonth);
+    //可用数组方法表示
+    const param = [1990, 2, 22, 13, 22, 19];
+    const date4 = new Date(...param);
+    console.log(date4);//Thu Mar 22 1990 13:22:19 GMT+0800 (中国标准时间)
+
+    
+    //获取日期具体信息，并转换显示格式
+    console.log(date.getFullYear, date.getMonth +1);
+    //封装在函数内获取具体信息
+    function dateFormat(dates, format = "YYYY-MM-DD HH:mm:ss"){
+        const config = {
+            YYYY:dates.getFullYear(),
+            MM:dates.getMonth(),
+            DD:dates.getDate(),
+            HH:dates.getHours(),
+            mm:dates.getMinutes(),
+            ss:dates.getSeconds()
+        };
+        for(const key in config){
+            //key是YYYY,MM,DD等……config[key]是获取到的年月日数值
+            format = format.replace(key, config[key]);
+        }
+        return format;
+    }
+    console.log(dateFormat(date3, "YYYY年MM月DD日"));
+    
+
+    </script>
+</body>
+</html>

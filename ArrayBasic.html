@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组是obj类型,可用new创建
+        const array = new Array ("a", "b", 1, 2);
+        console.log(array.join("|"));
+        console.log(array);
+        //引用类型例子,值。
+        let a = 1;
+        let b = a;
+         b = 99;
+        console.log(a, b);//1,99
+        const arrr = [1, 2];
+        arrr[1] = 99;
+        console.log(arrr);//1,99
+
+
+        //table表示
+        const num = [1, 2, 3, 4];
+        console.log(num);
+        console.table(num);
+
+        //长度
+        let speclen = ["hahah"];
+        speclen[3] = "xixii";
+        console.log(speclen.length);//4
+        let defectoflen = new Array (6);//此处创建了6个空值
+        console.table(defectoflen);
+        console.log(defectoflen.length);//6
+
+        let modiDefect = Array.of(6);//修改缺陷
+        console.log(modiDefect.length);//1
+
+
+        //数组后面push
+        let arr = ["xxx","***","???"];
+        for (const value of array){
+            arr.push(value);
+        }
+        console.log(arr);//["xxx", "***", "???", "a", "b", 1, 2]
+        //使用展开数组，...表示数组里面的所有元素；
+        arrUnfold = [...arr, ...array];
+        console.log(arrUnfold);
+        //["xxx", "***", "???", "a", "b", 1, 2, "a", "b", 1, 2]
+        //展开语法在函数的使用
+        function sum(...args){
+            return args.reduce((s, v) => {
+                return (s += v);
+            }, 0);
+        }
+        console.log(sum(1,2));
+
+    </script>
+</body>
+</html>

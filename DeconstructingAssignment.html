@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body></body>
+<script>
+    let arr = ['author', 2020];
+    let name0 = arr[0];
+    let year0 = arr[1];
+    let [name, year] = arr;
+    console.log(name, year);//author 2020
+    console.log(name0, year);//同上
+
+    //比较好看的表达
+    function get(){
+        return ["hahahah", 2021];
+    }
+    let [name1, year1] = get();
+    console.log(name1);//hahahah
+
+    "use strict";
+    var [name2,year2] = ["xixixix",2010];
+    console.log(name2);
+
+    //...:打散展开
+    const[...arr2] = "thisisstring";//string转为数组
+    console.log(arr2, [...arr2],..."thisisstring");
+    //["t", "h", "i", "s", "i", "s", "s", "t", "r", "i", "n", "g"]
+    //["t", "h", "i", "s", "i", "s", "s", "t", "r", "i", "n", "g"] 
+    //"t" "h" "i" "s" "i" "s" "s" "t" "r" "i" "n" "g"
+
+    let [,year3] = ["kkkk", 2008];
+    console.log(year3);//2008
+    //...: 显示后面的值
+    let [name4, ...args] = ["jjjj","hhhhh", 2000];
+    console.log(name4, args);//args显示的是后面两个
+    //注意区分：
+    let a = ['xxxxx',...args];
+    console.log(a);//结合args再展开，["xxxxx", "hhhhh", 2000]
+    
+
+</script>
+</html>
